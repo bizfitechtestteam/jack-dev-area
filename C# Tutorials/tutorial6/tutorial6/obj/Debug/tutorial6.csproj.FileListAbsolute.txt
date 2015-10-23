@@ -1,0 +1,6 @@
+C:\Users\jack.broughton\Desktop\C# Dev Plan\tutorial6\tutorial6\bin\Debug\tutorial6.exe.config
+C:\Users\jack.broughton\Desktop\C# Dev Plan\tutorial6\tutorial6\bin\Debug\tutorial6.exe
+C:\Users\jack.broughton\Desktop\C# Dev Plan\tutorial6\tutorial6\bin\Debug\tutorial6.pdb
+C:\Users\jack.broughton\Desktop\C# Dev Plan\tutorial6\tutorial6\obj\Debug\tutorial6.csprojResolveAssemblyReference.cache
+C:\Users\jack.broughton\Desktop\C# Dev Plan\tutorial6\tutorial6\obj\Debug\tutorial6.exe
+C:\Users\jack.broughton\Desktop\C# Dev Plan\tutorial6\tutorial6\obj\Debug\tutorial6.pdb

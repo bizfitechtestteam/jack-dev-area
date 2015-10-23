@@ -1,0 +1,6 @@
+C:\Users\jack.broughton\Desktop\C# Dev Plan\C10\C10\bin\Debug\C10.exe.config
+C:\Users\jack.broughton\Desktop\C# Dev Plan\C10\C10\bin\Debug\C10.exe
+C:\Users\jack.broughton\Desktop\C# Dev Plan\C10\C10\bin\Debug\C10.pdb
+C:\Users\jack.broughton\Desktop\C# Dev Plan\C10\C10\obj\Debug\C10.csprojResolveAssemblyReference.cache
+C:\Users\jack.broughton\Desktop\C# Dev Plan\C10\C10\obj\Debug\C10.exe
+C:\Users\jack.broughton\Desktop\C# Dev Plan\C10\C10\obj\Debug\C10.pdb

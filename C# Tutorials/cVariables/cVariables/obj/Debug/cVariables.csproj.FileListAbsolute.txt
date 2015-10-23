@@ -1,0 +1,8 @@
+C:\Users\jack.broughton\Desktop\cVariables\cVariables\bin\Debug\cVariables.exe.config
+C:\Users\jack.broughton\Desktop\cVariables\cVariables\bin\Debug\cVariables.exe
+C:\Users\jack.broughton\Desktop\cVariables\cVariables\bin\Debug\cVariables.pdb
+C:\Users\jack.broughton\Desktop\cVariables\cVariables\obj\Debug\cVariables.exe
+C:\Users\jack.broughton\Desktop\cVariables\cVariables\obj\Debug\cVariables.pdb
+C:\Users\jack.broughton\Desktop\C# Dev Plan\cVariables\cVariables\bin\Debug\cVariables.exe.config
+C:\Users\jack.broughton\Desktop\C# Dev Plan\cVariables\cVariables\obj\Debug\cVariables.exe
+C:\Users\jack.broughton\Desktop\C# Dev Plan\cVariables\cVariables\obj\Debug\cVariables.pdb
