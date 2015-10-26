@@ -1,15 +1,16 @@
 ﻿using System;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
 namespace WebDriverPractice
 {
-    internal class HappyPath
+    [TestClass]
+    public class HappyPath
     {
         private IWebDriver _driver;
 
-        [SetUp]
+        [TestInitialize]
         public void SetUp()
         {
             _driver = new FirefoxDriver();
@@ -17,13 +18,13 @@ namespace WebDriverPractice
             _driver.Manage().Window.Maximize();
         }
 
-        [TearDown]
-        public void Teardown()
+        [TestCleanup]
+        public void TestCleaup()
         {
             _driver.Dispose();
         }
 
-        //[Test]
+        [TestMethod]
         public void GocontactPage()
         {
             _driver.Navigate().GoToUrl("https://bfc-test.bftcloud.com/contact");
@@ -48,30 +49,18 @@ namespace WebDriverPractice
         private void CheckSent()
         {
             var sucessfulMessage = _driver.FindElement(By.Id("gform_confirmation_message_13"));
-            Assert.That(sucessfulMessage.Text,
-                Is.EqualTo("Thanks for contacting us! We will get in touch with you shortly."));
+            Assert.AreEqual(sucessfulMessage.Text,
+                ("Thanks for contacting us! We will get in touch with you shortly."));
             Console.WriteLine("Form has been sent successfully!");
         }
 
-        [Test]
+        [TestMethod]
         public void ContactUsForm_CompletedWithValidData_Success()
         {
             FillForm
                 ("Jack", "Bro", "jack.broughton@bizfitech.com",
                     "Hello, I am unable to gain access to my account could you reset my password please? Thank you!");
             CheckSent();
-            GocontactPage();
-
-            //break into separate methods
-
-            FillForm("Jack", "Johnson", "jack.jo@bizfitech.com",
-                "Hello, is anyone there?!");
-            CheckSent();
-            GocontactPage();
-            FillForm("John", "Jackson", "john.jack@bizfitech.com",
-                "This is a message for the box");
-            CheckSent();
-            GocontactPage();
         }
     }
 }

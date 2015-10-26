@@ -1,49 +1,49 @@
 ﻿
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace WebDriverPractice
 {
-    [TestFixture]
+     [TestClass]
     public class JackTest
     {
         private IWebDriver _driver;
 
-        [SetUp]
+        [TestInitialize]
         public void SetUp()
         {
             _driver = new FirefoxDriver();
             _driver.Navigate().GoToUrl("http://www.bbc.co.uk");
         }
 
-        [TearDown]
-        public void Teardown()
+        [TestCleanup]
+        public void TestCleanup()
         {
             _driver.Dispose();
         }
 
-        [Test]
+        [TestMethod]
         public void FirstTest()
         {
             IWebElement newsLink = _driver.FindElement(By.LinkText("News"));
 
             newsLink.Click();
-            Assert.That(_driver.Title, Is.EqualTo("Home - BBC News"));
+            Assert.AreEqual(_driver.Title, ("Home - BBC News"));
         }
-        [Test]
+        [TestMethod]
         public void FindSport()
         {
             IWebElement sportsLink = _driver.FindElement(By.ClassName("orb-nav-sport"));
             sportsLink.Click();
-            Assert.That(_driver.Title, Is.EqualTo("BBC Sport - Sport"));
+            Assert.AreEqual(_driver.Title, ("BBC Sport - Sport"));
         }
 
-        [Test]
+        [TestMethod]
         public void SearchSport()
         {
             FindSport();
@@ -52,7 +52,7 @@ namespace WebDriverPractice
             searchBar.Submit();
         }
 
-        [Test]
+        [TestMethod]
         public void LeagueTable()
         {
             //string team = "Nottm Forest";
@@ -76,13 +76,13 @@ namespace WebDriverPractice
                 optionsText.Add(dropDownOption.Text);
                 //if (dropDownOption.Text == " Championship ")
                 //{
-                //    Assert.That(dropDownOption.Text, Is.EqualTo(" Championship "));
+                //    Assert.AreEqual(dropDownOption.Text, (" Championship "));
                 //}
             }
 
         }
 
-        [Test]
+        [TestMethod]
         public void Food()
         {
             IWebElement moreLink = _driver.FindElement(By.LinkText("More"));

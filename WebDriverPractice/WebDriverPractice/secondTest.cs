@@ -1,6 +1,4 @@
-﻿
-using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
@@ -8,15 +6,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace WebDriverPractice
 {
-    [TestFixture]
+    [TestClass]
     public class SecondTest
     {
         private IWebDriver _driver;
 
-        [SetUp]
+        
         public void SetUp()
         {
             _driver = new FirefoxDriver();
@@ -25,15 +24,15 @@ namespace WebDriverPractice
            
         }
 
-        [TearDown]
-        public void Teardown()
+        [TestCleanup]
+        public void TestCleanup()
         {
             _driver.Dispose();
         }
 
       
 
-        [Test]
+        [TestMethod]
         public void StartPage(int loanAmount, string companyString)
         {
            IWebElement amountField = _driver.FindElement(By.Id("funding-amount-altered"));
@@ -46,7 +45,7 @@ namespace WebDriverPractice
            submitButton.Click();
         }
 
-        [Test]
+        [TestMethod]
         public void AboutYou(string addressLine1,string cityname,string postcode,string annual)
         {
             // IWebElement addressBar = _driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/main/section[2]/form/fieldset/div[1]/div[1]"));
@@ -78,7 +77,7 @@ namespace WebDriverPractice
             sendMatches.Click();
         }
 
-        [Test]
+        [TestMethod]
         public void AboutYou2(string title, string first, string second, string email,string phone)
         {
        //     IWebElement titleField = _driver.FindElement(By.Name("Questions[0].Item.Value"));
@@ -95,7 +94,7 @@ namespace WebDriverPractice
             submitButton.Click();
         }
 
-        [Test]
+        [TestMethod]
         public void YourMatches()
         {
             //SelectElement matches = new SelectElement(_driver.FindElement(By.XPath(("/html/body/div/div/div/div/main/form/section[1]/div/table/tbody"))));
@@ -111,17 +110,17 @@ namespace WebDriverPractice
             getCertainty.Click();
         }
 
-        [Test]
+        [TestMethod]
         public void RunThrough()
         {
 
-            Assert.That(_driver.Title, Is.EqualTo("Business funding alternatives | Business Loans UK | Small Business funding"));
+            Assert.AreEqual(_driver.Title, ("Business funding alternatives | Business Loans UK | Small Business funding"));
             StartPage(23450, "ASD Business");
-            Assert.That(_driver.Title, Is.EqualTo("Your Business - Business Finance Compared"));
+            Assert.AreEqual(_driver.Title, ("Your Business - Business Finance Compared"));
             AboutYou("123 Fake Street","Nottingham","NG111AA","123000");
-            Assert.That(_driver.Title, Is.EqualTo("About You - Business Finance Compared"));
+            Assert.AreEqual(_driver.Title, ("About You - Business Finance Compared"));
             AboutYou2("Mr","Jack","Broughton","jack.broughton@bizfitech.com","01234567891");
-            Assert.That(_driver.Title, Is.EqualTo("Your Matched Products - Business Finance Compared"));
+            Assert.AreEqual(_driver.Title, ("Your Matched Products - Business Finance Compared"));
             YourMatches();
 
             CollectionSample("Limited");

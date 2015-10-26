@@ -1,21 +1,16 @@
 ﻿using System;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
 namespace WebDriverPractice
 {
-    internal class ExceptionPath
+    [TestClass]
+    public class ExceptionPath
     {
-        /*
-            Names <=50
-            Emails <=100
-            Message ???
-        */
-
         private IWebDriver _driver;
 
-        [SetUp]
+        [TestInitialize]
         public void SetUp()
         {
             Console.WriteLine("\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\nTest Started");
@@ -24,14 +19,14 @@ namespace WebDriverPractice
             _driver.Manage().Window.Maximize();
         }
 
-        [TearDown]
-        public void Teardown()
+        [TestCleanup]
+        public void TestCleanup()
         {
             _driver.Dispose();
             Console.WriteLine("Test Ended\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
         }
 
-        [Test]
+        [TestMethod]
         public void GocontactPage()
         {
             _driver.Navigate().GoToUrl("https://bfc-test.bftcloud.com/contact");
@@ -73,90 +68,89 @@ namespace WebDriverPractice
         public void CheckSent()
         {
             var sucessfulMessage = _driver.FindElement(By.Id("gform_confirmation_message_13"));
-            Assert.That(sucessfulMessage.Text,
-                Is.EqualTo("Thanks for contacting us! We will get in touch with you shortly."));
+            Assert.AreEqual(sucessfulMessage.Text,("Thanks for contacting us! We will get in touch with you shortly."));
             Console.WriteLine("Form has been sent successfully!");
         }
 
         public void ErrorMessage()
         {
             var errorMessage = _driver.FindElement(By.Id("error-message"));
-            Assert.That(errorMessage.Text,
-                Is.EqualTo("There was a problem with your submission. Errors have been highlighted below."));
+            Assert.AreEqual(errorMessage.Text,
+                ("There was a problem with your submission. Errors have been highlighted below."));
             Console.WriteLine("General Error Message Alert Fired");
         }
 
         public void ErrorMessageNoFirstName()
         {
             var errorMessageNoFirst = _driver.FindElement(By.Id("firstName-error"));
-            Assert.That(errorMessageNoFirst.Text, Is.EqualTo("This field is required."));
+            Assert.AreEqual(errorMessageNoFirst.Text, ("This field is required."));
             Console.WriteLine("No First Name Error Message Alert Fired");
         }
 
         public void ErrorMessageNoSecondName()
         {
             var errorMessageNoSecond = _driver.FindElement(By.Id("lastName-error"));
-            Assert.That(errorMessageNoSecond.Text, Is.EqualTo("This field is required."));
+            Assert.AreEqual(errorMessageNoSecond.Text, ("This field is required."));
             Console.WriteLine("No Second Name Error Message Alert Fired");
         }
 
         public void ErrorMessageNoEmail()
         {
             var errorMessageNoEmail = _driver.FindElement(By.Id("email-error"));
-            Assert.That(errorMessageNoEmail.Text, Is.EqualTo("This field is required."));
+            Assert.AreEqual(errorMessageNoEmail.Text, ("This field is required."));
             Console.WriteLine("No Email Error Message Alert Fired");
         }
 
         public void ErrorMessageNoMessage()
         {
             var errorMessageNoMessage = _driver.FindElement(By.Id("message-error"));
-            Assert.That(errorMessageNoMessage.Text, Is.EqualTo("This field is required."));
+            Assert.AreEqual(errorMessageNoMessage.Text, ("This field is required."));
             Console.WriteLine("No Message Error Message Alert Fired");
         }
 
         public void ErrorInvalidEmail()
         {
             var errorMessageInvEmail = _driver.FindElement(By.Id("email-error"));
-            Assert.That(errorMessageInvEmail.Text, Is.EqualTo("Please enter a valid email address."));
+            Assert.AreEqual(errorMessageInvEmail.Text, ("Please enter a valid email address."));
             Console.WriteLine("Invalid Email Error Message Alert Fired");
         }
 
         public void ErrorMessageCharacterFirstName()
         {
             var errorMessageCharacterFirst = _driver.FindElement(By.Id("firstName-error"));
-            Assert.That(errorMessageCharacterFirst.Text, Is.EqualTo("Please enter no more than 50 characters."));
+            Assert.AreEqual(errorMessageCharacterFirst.Text, ("Please enter no more than 50 characters."));
             Console.WriteLine("Over 50 Characters First Name Error Message Alert Fired");
         }
 
         public void ErrorMessageCharacterSecondName()
         {
             var errorMessageCharacterSecond = _driver.FindElement(By.Id("lastName-error"));
-            Assert.That(errorMessageCharacterSecond.Text, Is.EqualTo("Please enter no more than 50 characters."));
+            Assert.AreEqual(errorMessageCharacterSecond.Text, ("Please enter no more than 50 characters."));
             Console.WriteLine("Over 50 Characters Second Name Error Message Alert Fired");
         }
 
         public void ErrorInvalidCharacterEmail()
         {
             var errorMessageInvCharEmail = _driver.FindElement(By.Id("email-error"));
-            Assert.That(errorMessageInvCharEmail.Text, Is.EqualTo("Please enter no more than 100 characters."));
+            Assert.AreEqual(errorMessageInvCharEmail.Text, ("Please enter no more than 100 characters."));
             Console.WriteLine("Over 100 Characters Email Error Message Alert Fired");
         }
 
         public void ErrorMessageAlphaFirstName()
         {
             var errorMessageAlphaFirst = _driver.FindElement(By.Id("firstName-error"));
-            Assert.That(errorMessageAlphaFirst.Text, Is.EqualTo("Only Alpha Characters Allowed."));
+            Assert.AreEqual(errorMessageAlphaFirst.Text, ("Only Alpha Characters Allowed."));
             Console.WriteLine("Non-Alpha Characters In First Name Error Message Alert Fired");
         }
 
         public void ErrorMessageAlphaSecondName()
         {
             var errorMessageAlphaSecond = _driver.FindElement(By.Id("lastName-error"));
-            Assert.That(errorMessageAlphaSecond.Text, Is.EqualTo("Only Alpha Characters Allowed."));
+            Assert.AreEqual(errorMessageAlphaSecond.Text, ("Only Alpha Characters Allowed."));
             Console.WriteLine("Non-Alpha Characters In Second Name Error Message Alert Fired");
         }
 
-        [Test]
+        [TestMethod]
         public void Submit()
         {
             var submitButton = _driver.FindElement(By.Id("gform_submit_button_13"));
@@ -164,7 +158,7 @@ namespace WebDriverPractice
             Console.WriteLine("Click Submit");
         }
 
-        [Test]
+        [TestMethod]
         public void AllDone()
         {
             FillForm("Jack", "Broughton", "jack.broughton@bizfitech.com",
@@ -172,7 +166,7 @@ namespace WebDriverPractice
             CheckSent();
         }
 
-        [Test]
+        [TestMethod]
         public void TestBlank()
         {
             Submit();
@@ -183,7 +177,7 @@ namespace WebDriverPractice
             ErrorMessageNoMessage();
         }
 
-        [Test]
+        [TestMethod]
         public void NoFirstName()
         {
             Console.WriteLine("No First Name Test");
@@ -195,7 +189,7 @@ namespace WebDriverPractice
             ErrorMessageNoFirstName();
         }
 
-        [Test]
+        [TestMethod]
         public void NoSecondName()
         {
             Console.WriteLine("No Second Name Test");
@@ -207,7 +201,7 @@ namespace WebDriverPractice
             ErrorMessageNoSecondName();
         }
 
-        [Test]
+        [TestMethod]
         public void NoEmail()
         {
             Console.WriteLine("No Email Test");
@@ -219,7 +213,7 @@ namespace WebDriverPractice
             ErrorMessageNoEmail();
         }
 
-        [Test]
+        [TestMethod]
         public void NoMessage()
         {
             Console.WriteLine("No Message Test");
@@ -231,7 +225,7 @@ namespace WebDriverPractice
             ErrorMessageNoMessage();
         }
 
-        [Test]
+        [TestMethod]
         public void InvalidEmail()
         {
             Console.WriteLine("Invalid Email Test");
@@ -244,7 +238,7 @@ namespace WebDriverPractice
             */
         }
 
-        [Test]
+        [TestMethod]
         public void Char50First()
         {
             Console.WriteLine("50 Characters First Name Test");
@@ -253,7 +247,7 @@ namespace WebDriverPractice
             CheckSent();
         }
 
-        [Test]
+        [TestMethod]
         public void Char50Second()
         {
             Console.WriteLine("50 Characters Second Name Test");
@@ -262,7 +256,7 @@ namespace WebDriverPractice
             CheckSent();
         }
 
-        [Test]
+        [TestMethod]
         public void Char100Email()
         {
             Console.WriteLine("100 Characters Email Test");
@@ -272,7 +266,7 @@ namespace WebDriverPractice
             CheckSent();
         }
 
-        [Test]
+        [TestMethod]
         public void CharOver50First()
         {
             Console.WriteLine("Over 50 Characters First Name Test");
@@ -281,7 +275,7 @@ namespace WebDriverPractice
             ErrorMessageCharacterFirstName();
         }
 
-        [Test]
+        [TestMethod]
         public void CharOver50Second()
         {
             Console.WriteLine("Over 50 Characters Second Name Test");
@@ -290,7 +284,7 @@ namespace WebDriverPractice
             ErrorMessageCharacterSecondName();
         }
 
-        [Test]
+        [TestMethod]
         public void CharOver100Email()
         {
             Console.WriteLine("Over 100 Characters Email Test");
@@ -300,18 +294,18 @@ namespace WebDriverPractice
             ErrorInvalidCharacterEmail();
         }
 
-        [Test]
+        [TestMethod]
         public void ErrorAlphaFirst()
         {
             Console.WriteLine("First Name Contains Non-Alpha Characters Test");
-            FillForm("Jack6", "Broughton", "jack.broughton@bizfitech.com", "Test Non Alpha Characters");
+            FillForm("Jack6", "Broughton", "jack.broughton@bizfitech.com", "TestMethod Non Alpha Characters");
             ErrorMessageAlphaFirstName();
         }
 
-        [Test]
+        [TestMethod]
         public void ErrorAlphaSecond()
         {
-            Console.WriteLine("Second Name Contains Non-Alpha Characters Test");
+            Console.WriteLine("Second Name Contains Non-Alpha Characters TestMethod");
             FillForm("Jack", "Brough2on", "jack.broughton@bizfitech.com", "Test Non Alpha Characters");
             ErrorMessageAlphaSecondName();
         }

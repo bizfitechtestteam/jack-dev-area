@@ -22,3 +22,15 @@ C:\Users\jack.broughton\Desktop\C# Dev Plan\WebDriverPractice\WebDriverPractice\
 C:\Users\jack.broughton\Desktop\C# Dev Plan\WebDriverPractice\WebDriverPractice\obj\Debug\WebDriverPractice.csprojResolveAssemblyReference.cache
 C:\Users\jack.broughton\Desktop\C# Dev Plan\WebDriverPractice\WebDriverPractice\obj\Debug\WebDriverPractice.dll
 C:\Users\jack.broughton\Desktop\C# Dev Plan\WebDriverPractice\WebDriverPractice\obj\Debug\WebDriverPractice.pdb
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\bin\Debug\WebDriverPractice.dll.config
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\bin\Debug\WebDriverPractice.dll
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\bin\Debug\WebDriverPractice.pdb
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\bin\Debug\System.Transactions.dll
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\bin\Debug\WebDriver.dll
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\bin\Debug\WebDriver.Support.dll
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\bin\Debug\WebDriver.xml
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\bin\Debug\WebDriver.Support.xml
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\obj\Debug\WebDriverPractice.csprojResolveAssemblyReference.cache
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\obj\Debug\WebDriverPractice.dll
+C:\Users\jack.broughton\Desktop\C# Tutorial + Work\WebDriverPractice\WebDriverPractice\obj\Debug\WebDriverPractice.pdb
