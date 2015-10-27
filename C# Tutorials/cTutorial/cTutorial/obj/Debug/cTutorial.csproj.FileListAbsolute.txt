@@ -1,9 +1,0 @@
-C:\Users\jack.broughton\Desktop\cTutorial\cTutorial\bin\Debug\cTutorial.exe.config
-C:\Users\jack.broughton\Desktop\cTutorial\cTutorial\bin\Debug\cTutorial.exe
-C:\Users\jack.broughton\Desktop\cTutorial\cTutorial\bin\Debug\cTutorial.pdb
-C:\Users\jack.broughton\Desktop\cTutorial\cTutorial\obj\Debug\cTutorial.csprojResolveAssemblyReference.cache
-C:\Users\jack.broughton\Desktop\cTutorial\cTutorial\obj\Debug\cTutorial.exe
-C:\Users\jack.broughton\Desktop\cTutorial\cTutorial\obj\Debug\cTutorial.pdb
-C:\Users\jack.broughton\Desktop\C# Dev Plan\cTutorial\cTutorial\bin\Debug\cTutorial.exe.config
-C:\Users\jack.broughton\Desktop\C# Dev Plan\cTutorial\cTutorial\obj\Debug\cTutorial.exe
-C:\Users\jack.broughton\Desktop\C# Dev Plan\cTutorial\cTutorial\obj\Debug\cTutorial.pdb

@@ -1,6 +1,0 @@
-C:\Users\jack.broughton\Desktop\C# Dev Plan\c09\c09\bin\Debug\c09.exe.config
-C:\Users\jack.broughton\Desktop\C# Dev Plan\c09\c09\bin\Debug\c09.exe
-C:\Users\jack.broughton\Desktop\C# Dev Plan\c09\c09\bin\Debug\c09.pdb
-C:\Users\jack.broughton\Desktop\C# Dev Plan\c09\c09\obj\Debug\c09.csprojResolveAssemblyReference.cache
-C:\Users\jack.broughton\Desktop\C# Dev Plan\c09\c09\obj\Debug\c09.exe
-C:\Users\jack.broughton\Desktop\C# Dev Plan\c09\c09\obj\Debug\c09.pdb

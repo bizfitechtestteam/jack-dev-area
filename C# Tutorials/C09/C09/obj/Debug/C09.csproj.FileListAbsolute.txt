@@ -1,5 +1,0 @@
-C:\Users\jack.broughton\Desktop\C# Dev Plan\C09\C09\bin\Debug\C09.exe.config
-C:\Users\jack.broughton\Desktop\C# Dev Plan\C09\C09\bin\Debug\C09.exe
-C:\Users\jack.broughton\Desktop\C# Dev Plan\C09\C09\bin\Debug\C09.pdb
-C:\Users\jack.broughton\Desktop\C# Dev Plan\C09\C09\obj\Debug\C09.exe
-C:\Users\jack.broughton\Desktop\C# Dev Plan\C09\C09\obj\Debug\C09.pdb
