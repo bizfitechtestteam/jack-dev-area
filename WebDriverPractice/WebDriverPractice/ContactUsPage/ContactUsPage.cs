@@ -20,6 +20,7 @@ namespace WebDriverPractice
         {
             Driver = driver;
             PageFactory.InitElements(Driver, this);
+
         }
 
         private AddNames AddNames => new AddNames(Driver); // Create new Name OBJ
@@ -31,11 +32,11 @@ namespace WebDriverPractice
         {
             return Driver.Title;
         }
-
         public void Submit()
         {
             _contactSubmit.Click();
         }
+
 
         public void FillContactUsForm(string firstName, string lastName, string emailAddress, string aMessage)
         {

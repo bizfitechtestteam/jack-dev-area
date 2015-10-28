@@ -8,6 +8,9 @@ namespace WebDriverPractice
     [TestClass]
     public class RemoteBase
     {
+        public RemoteWebDriver WebDriver { get; set; }
+        private RemoteDriverManager DriverManager => new RemoteDriverManager();
+        public ContactUsPage ContactUsPage => new ContactUsPage(WebDriver);
         public TestContext TestContext { get; set; }
         
         [DataSource("XmlDataSource"), TestInitialize]
@@ -36,14 +39,8 @@ namespace WebDriverPractice
         {
             WebDriver.Dispose();
         }
-        public RemoteWebDriver WebDriver { get; set; }
-        private RemoteDriverManager DriverManager => new RemoteDriverManager();
-        public ContactUsPage ContactUsPage => new ContactUsPage(WebDriver);
 
-        //[DataSource("XmlDataSource"), TestMethod]
-        //public void ContactUsForm_AllBlank()
-        //{
-        //    WebDriver.Navigate().GoToUrl("https://bfc-test.bftcloud.com/contact");
-        //}
+
+       
 }
 }
