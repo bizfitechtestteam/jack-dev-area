@@ -9,7 +9,6 @@ namespace WebDriverPractice
     [TestClass]
     public class RemoteBase
     {
-        public RemoteWebDriver WebDriver { get; set; }
         public string sentSuccessfullyMessage = "Thanks for contacting us! We will get in touch with you shortly.";
         public string generalErrorMessage = "There was a problem with your submission. Errors have been highlighted below.";
         public string fieldRequiredMessage = "This field is required.";
@@ -17,20 +16,21 @@ namespace WebDriverPractice
         public string nonAlphaErrorMessage = "Only Alpha Characters Allowed.";
         public string over50CharsErrorMessage = "Please enter no more than 50 characters.";
         public string over100CharErrorMessage = "Please enter no more than 100 characters.";
-        [FindsBy(How = How.Id, Using = "gform_confirmation_message_13")]public IWebElement successfullForm;
         
-        public RemoteBase()
-        //{
-        //    PageFactory.InitElements(WebDriver, this);
-        //    IWebElement successfullForm = WebDriver.FindElement(By.Id("gform_confirmation_message_13"));
-        //    IWebElement generalError = WebDriver.FindElement(By.Id("error-message"));
-        //    IWebElement emailFieldRequiredErrors = WebDriver.FindElement(By.Id("email-error"));
-        //    IWebElement firstNameFieldRequiredError = WebDriver.FindElement(By.Id("firstName-error"));
-        //    IWebElement lastNameFieldRequiredError = WebDriver.FindElement(By.Id("lastName-error"));
-        //    IWebElement messageFieldRequiredError = WebDriver.FindElement(By.Id("message-error"));        
+        public RemoteBase(/*IWebDriver driver*/)
+        {
+            //WebDriver = driver;
+            //PageFactory.InitElements(WebDriver, this);
+            //PageFactory.InitElements(WebDriver, this);
+            ////successfullForm = WebDriver.FindElement(By.Id("gform_confirmation_message_13"));
+            //IWebElement generalError = WebDriver.FindElement(By.Id("error-message"));
+            //IWebElement emailFieldRequiredErrors = WebDriver.FindElement(By.Id("email-error"));
+            //IWebElement firstNameFieldRequiredError = WebDriver.FindElement(By.Id("firstName-error"));
+            //IWebElement lastNameFieldRequiredError = WebDriver.FindElement(By.Id("lastName-error"));
+            //IWebElement messageFieldRequiredError = WebDriver.FindElement(By.Id("message-error"));        
 
-        //}
-
+        }
+        public IWebDriver WebDriver { get; set; }
         private RemoteDriverManager DriverManager => new RemoteDriverManager();
         public ContactUsPage ContactUsPage => new ContactUsPage(WebDriver);
         public TestContext TestContext { get; set; }

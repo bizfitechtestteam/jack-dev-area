@@ -6,15 +6,14 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WebDriverPractice;
 
-namespace WebDriverPractice
-{
-     [TestClass]
+[TestClass]
     public class JackTest
     {
         private IWebDriver _driver;
-
-        [TestInitialize]
+        IWebElement searchBar;
+    [TestInitialize]
         public void SetUp()
         {
             _driver = new FirefoxDriver();
@@ -39,6 +38,7 @@ namespace WebDriverPractice
         public void FindSport()
         {
             IWebElement sportsLink = _driver.FindElement(By.ClassName("orb-nav-sport"));
+
             sportsLink.Click();
             Assert.AreEqual(_driver.Title, ("BBC Sport - Sport"));
         }
@@ -47,7 +47,7 @@ namespace WebDriverPractice
         public void SearchSport()
         {
             FindSport();
-            IWebElement searchBar = _driver.FindElement(By.Id("blq-search-q"));
+            searchBar.ElementIDTxt(_driver, "blq-search-q");
             searchBar.SendKeys("Cricket");
             searchBar.Submit();
         }
@@ -112,4 +112,3 @@ namespace WebDriverPractice
         
 
     }
-}

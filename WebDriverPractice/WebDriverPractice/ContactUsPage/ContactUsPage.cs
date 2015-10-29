@@ -15,12 +15,11 @@ namespace WebDriverPractice
         [FindsBy(How = How.Id, Using = "lastName-error")] private IWebElement _lastNameFieldRequiredError;
 
         [FindsBy(How = How.Id, Using = "message-error")] private IWebElement _messageFieldRequiredError;
-
+        
         public ContactUsPage(IWebDriver driver)
         {
             Driver = driver;
-            PageFactory.InitElements(Driver, this);
-
+            PageFactory.InitElements(Driver, this);     
         }
 
         private AddNames AddNames => new AddNames(Driver); // Create new Name OBJ

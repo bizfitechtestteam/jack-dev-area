@@ -10,19 +10,28 @@ namespace WebDriverPractice
     public class RemoteTestsContactUs : RemoteBase
     {
         RemoteBase remoteVars = new RemoteBase();
-        [DataSource("XmlDataSource"), TestMethod]
+        public RemoteWebDriver Driver { get; set; }
+
+        ContactErrorList ErrorM = new ContactErrorList
+        {
+            success = "gform_confirmation_message_13",
+            general = "error-message",
+            emailField= "email-error"
+        };
+
+       [DataSource("XmlDataSource"), TestMethod]
         public void ContactForm_HappyPath()
         {
             ContactUsPage.FillContactUsForm("Jack", "Bro", "jack.bro@arealemail.com", "This is a test message");
-            ContactUsPage.Submit();
-            Assert.AreEqual(remoteVars.successfullForm, remoteVars.sentSuccessfullyMessage);
+            ContactUsPage.Submit(); 
+            //Assert.AreEqual(remoteVars.sentSuccessfullyMessage, WebDriver.findElementText(ErrorM.success));
         }
 
         [DataSource("XmlDataSource"), TestMethod]
         public void ContactForm_AllBlank()
         {
             ContactUsPage.Submit();
-           // Assert.AreEqual(_firstNameFieldRequiredError.Text, (fieldRequiredMessage));
+            //Assert.AreEqual(, fieldRequiredMessage);
        //     Assert.AreEqual(_lastNameFieldRequiredError.Text, (fieldRequiredMessage));
        //     Assert.AreEqual(_emailFieldRequiredError.Text, (fieldRequiredMessage));
        //     Assert.AreEqual(_messageFieldRequiredError.Text, (fieldRequiredMessage));
