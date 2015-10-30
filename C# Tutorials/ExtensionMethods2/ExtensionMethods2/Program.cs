@@ -23,7 +23,6 @@ namespace ExtensionMethods2
             {
                 //Console.WriteLine("{0} costs {1}", p.ProductName, p.ProductPrice);
                 Console.WriteLine("{0} - Without VAT: {1:C} - VAT: {2:C} - Total inc VAT: {3:C}", p.ProductName, p.ProductPrice, p.CalculateVat(),p.CalculateWithVat());
-                noVAT.TotalProductPriceNoVAT(p);
             }
             Console.ReadLine();
         }
@@ -40,12 +39,6 @@ namespace ExtensionMethods2
         {
             return (p.ProductPrice += (p.ProductPrice * .25));
         }
-        public static double TotalProductPriceNoVAT(this double noVAT, Product p)
-        {
-           
-            noVAT += p.ProductPrice;
-            return noVAT;
 
-        }
     }
 }

@@ -1,32 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Support.PageObjects;
 
 namespace WebDriverPractice
 {
     public static class ExtensionMethods
     {
 
-        public static void SendKeys(this IWebElement field, string input)
+        public static void SendKey(this IWebElement field, string input)
         {
-            field.SendKeys(input);
+            try
+            {
+                field.Clear();
+                field.SendKeys(input);
+            }
+
+            catch (NoSuchElementException e)
+            {
+                Assert.Fail("Didn't find the element");
+            }
         }
-        public static string ElementIDTxt(this IWebElement findID, IWebDriver driver, string IDStr)
+
+        public static void click(this IWebElement field)
         {
-            return driver.FindElement(By.Id(IDStr)).Text;
+            if (!field.Enabled && !field.Displayed)
+            {
+                throw new ElementNotVisibleException("The element passed is not displayed/enabled");
+            }
+                field.Click();
         }
+        
     }
 
-
-    public class ContactErrorList
-    {
-        public string success { get; set; }
-        public string general { get; set; }
-        public string emailField { get; set; }
-    }
+ 
 }

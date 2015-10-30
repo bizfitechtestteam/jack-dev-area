@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace WebDriverPractice
@@ -21,7 +16,7 @@ namespace WebDriverPractice
 
         public void EnterAMessage(string aMessage)
         {
-            _messageField.SendKeys(aMessage);
+            _messageField.SendKey(aMessage);
         }
         public void ClearAMessage()
         {

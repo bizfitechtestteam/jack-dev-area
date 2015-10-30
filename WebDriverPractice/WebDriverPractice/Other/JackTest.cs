@@ -47,7 +47,6 @@ using WebDriverPractice;
         public void SearchSport()
         {
             FindSport();
-            searchBar.ElementIDTxt(_driver, "blq-search-q");
             searchBar.SendKeys("Cricket");
             searchBar.Submit();
         }

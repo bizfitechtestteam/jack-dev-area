@@ -1,61 +1,50 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Support.PageObjects;
 
 namespace WebDriverPractice
 {
     [TestClass]
     public class RemoteTestsContactUs : RemoteBase
     {
-        RemoteBase remoteVars = new RemoteBase();
         public RemoteWebDriver Driver { get; set; }
-
-        ContactErrorList ErrorM = new ContactErrorList
-        {
-            success = "gform_confirmation_message_13",
-            general = "error-message",
-            emailField= "email-error"
-        };
-
+        
        [DataSource("XmlDataSource"), TestMethod]
         public void ContactForm_HappyPath()
         {
             ContactUsPage.FillContactUsForm("Jack", "Bro", "jack.bro@arealemail.com", "This is a test message");
             ContactUsPage.Submit(); 
-            //Assert.AreEqual(remoteVars.sentSuccessfullyMessage, WebDriver.findElementText(ErrorM.success));
+            Assert.AreEqual(sentSuccessfullyMessage, ThankYouPage.SuccessText());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
         public void ContactForm_AllBlank()
         {
             ContactUsPage.Submit();
-            //Assert.AreEqual(, fieldRequiredMessage);
-       //     Assert.AreEqual(_lastNameFieldRequiredError.Text, (fieldRequiredMessage));
-       //     Assert.AreEqual(_emailFieldRequiredError.Text, (fieldRequiredMessage));
-       //     Assert.AreEqual(_messageFieldRequiredError.Text, (fieldRequiredMessage));
-       //     Assert.AreEqual(_generalError.Text, (generalErrorMessage));
+            Assert.AreEqual(requiredMessage, ContactUsPage.FirstNameError());
+            Assert.AreEqual(requiredMessage, ContactUsPage.LastNameError());
+            Assert.AreEqual(requiredMessage, ContactUsPage.EmailError());
+            Assert.AreEqual(requiredMessage, ContactUsPage.MessageError());
+            Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
         public void ContactForm_InvalidEmail_NoDot()
         {
             ContactUsPage.FillContactUsForm("Jack", "Bro", "thisisnotaemail@gmail", "testy messagey");//    Allows just @ ???
-            ContactUsPage.ContactUsForm_Email_ValidRequiredError();
+            Assert.AreEqual(emailValidMessage, ContactUsPage.EmailError());
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_GeneralError();
-            ContactUsPage.ContactUsForm_Email_ValidRequiredError();
+            Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
+            Assert.AreEqual(emailValidMessage, ContactUsPage.EmailError());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
         public void ContactForm_InvalidEmail()
         {
             ContactUsPage.FillContactUsForm("Jack", "Bro", "thisisnotaemail", "testy messagey2");
-            ContactUsPage.ContactUsForm_Email_ValidRequiredError();
+            Assert.AreEqual(emailValidMessage, ContactUsPage.EmailError());
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_GeneralError();
-            ContactUsPage.ContactUsForm_Email_ValidRequiredError();
+            Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
+            Assert.AreEqual(emailValidMessage, ContactUsPage.EmailError());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -63,10 +52,10 @@ namespace WebDriverPractice
         {
             ContactUsPage.FillContactUsForm("Jack", "", "", "");
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_LastName_FieldRequiredError();
-            ContactUsPage.ContactUsForm_Email_FieldRequiredError();
-            ContactUsPage.ContactUsForm_Message_FieldRequiredError();
-            ContactUsPage.ContactUsForm_GeneralError();
+            Assert.AreEqual(requiredMessage, ContactUsPage.LastNameError());
+            Assert.AreEqual(requiredMessage, ContactUsPage.EmailError());
+            Assert.AreEqual(requiredMessage, ContactUsPage.MessageError());
+            Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -74,10 +63,10 @@ namespace WebDriverPractice
         {
             ContactUsPage.FillContactUsForm("", "Broughton", "", "");
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_FirstName_FieldRequiredError();
-            ContactUsPage.ContactUsForm_Email_FieldRequiredError();
-            ContactUsPage.ContactUsForm_Message_FieldRequiredError();
-            ContactUsPage.ContactUsForm_GeneralError();
+            Assert.AreEqual(requiredMessage, ContactUsPage.FirstNameError());
+            Assert.AreEqual(requiredMessage, ContactUsPage.EmailError());
+            Assert.AreEqual(requiredMessage, ContactUsPage.MessageError());
+            Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -85,10 +74,10 @@ namespace WebDriverPractice
         {
             ContactUsPage.FillContactUsForm("", "", "jackbro@email.com", "");
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_FirstName_FieldRequiredError();
-            ContactUsPage.ContactUsForm_LastName_FieldRequiredError();
-            ContactUsPage.ContactUsForm_Message_FieldRequiredError();
-            ContactUsPage.ContactUsForm_GeneralError();
+            Assert.AreEqual(requiredMessage, ContactUsPage.FirstNameError());
+            Assert.AreEqual(requiredMessage, ContactUsPage.LastNameError());
+            Assert.AreEqual(requiredMessage, ContactUsPage.MessageError());
+            Assert.AreEqual(generalErrorMessage, (ContactUsPage.GeneralError()));
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -96,10 +85,10 @@ namespace WebDriverPractice
         {
             ContactUsPage.FillContactUsForm("", "", "", "This is a message!");
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_FirstName_FieldRequiredError();
-            ContactUsPage.ContactUsForm_LastName_FieldRequiredError();
-            ContactUsPage.ContactUsForm_Email_FieldRequiredError();
-            ContactUsPage.ContactUsForm_GeneralError();
+            Assert.AreEqual(requiredMessage, ContactUsPage.FirstNameError());
+            Assert.AreEqual(requiredMessage, ContactUsPage.LastNameError());
+            Assert.AreEqual(requiredMessage, ContactUsPage.EmailError());
+            Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -109,8 +98,8 @@ namespace WebDriverPractice
                 "JackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJa@email.com",
                 "Test Message");
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_GeneralError();
-            ContactUsPage.ContactusForm_Email_OverMaxCharsError();
+            Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
+            Assert.AreEqual(over100CharErrorMessage, ContactUsPage.EmailError());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -119,8 +108,8 @@ namespace WebDriverPractice
             ContactUsPage.FillContactUsForm("JackJackJackJackJackJackJackJackJackJackJackJackJack", "Broughton",
                 "email@email.email", "Test Message");
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_GeneralError();
-            ContactUsPage.ContactusForm_FirstName_OverMaxCharsError();
+            Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
+            Assert.AreEqual(over50CharsErrorMessage, ContactUsPage.FirstNameError());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -129,8 +118,8 @@ namespace WebDriverPractice
             ContactUsPage.FillContactUsForm("Broughton", "JackJackJackJackJackJackJackJackJackJackJackJackJack",
                 "email@email.email", "Test Message");
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_GeneralError();
-            ContactUsPage.ContactusForm_LastName_OverMaxCharsError();
+            Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
+            Assert.AreEqual(over50CharsErrorMessage, ContactUsPage.LastNameError());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -140,7 +129,7 @@ namespace WebDriverPractice
                 "JackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJackJa@email.com",
                 "Test Message");
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_SentSuccessfully();
+            Assert.AreEqual(sentSuccessfullyMessage, ThankYouPage.SuccessText());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -149,7 +138,7 @@ namespace WebDriverPractice
             ContactUsPage.FillContactUsForm("JackJackJackJackJackJackJackJackJackJackJackJackJa", "Broughton",
                 "email@email.email", "Test Message");
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_SentSuccessfully();
+            Assert.AreEqual(sentSuccessfullyMessage, ThankYouPage.SuccessText());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -158,7 +147,7 @@ namespace WebDriverPractice
             ContactUsPage.FillContactUsForm("Jack", "JackJackJackJackJackJackJackJackJackJackJackJackJa",
                 "email@email.email", "Test Message");
             ContactUsPage.Submit();
-            ContactUsPage.ContactUsForm_SentSuccessfully();
+            Assert.AreEqual(sentSuccessfullyMessage, ThankYouPage.SuccessText());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -166,8 +155,8 @@ namespace WebDriverPractice
         {
             ContactUsPage.FillContactUsForm("$Jack#£££", "Broughton", "email@email.email", "Test Message");
             ContactUsPage.Submit();
-            ContactUsPage.ContactusForm_FirstName_NonAlphaError();
-            ContactUsPage.ContactUsForm_GeneralError();
+            Assert.AreEqual(nonAlphaErrorMessage, ContactUsPage.FirstNameError());
+            Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
         }
 
         [DataSource("XmlDataSource"), TestMethod]
@@ -175,8 +164,10 @@ namespace WebDriverPractice
         {
             ContactUsPage.FillContactUsForm("Jack", "Broughton123!$%^", "email@email.email", "Test Message");
             ContactUsPage.Submit();
-            ContactUsPage.ContactusForm_LastName_NonAlphaError();
-            ContactUsPage.ContactUsForm_GeneralError();
+            Assert.AreEqual(nonAlphaErrorMessage, ContactUsPage.LastNameError());
+            Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
         }
     }
+
+
 }

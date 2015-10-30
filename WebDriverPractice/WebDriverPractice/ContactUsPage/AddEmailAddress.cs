@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace WebDriverPractice
@@ -22,7 +16,7 @@ namespace WebDriverPractice
         
         public void EnterEmailAddress(string emailAddress)
         {
-            _emailAddressField.SendKeys(emailAddress);
+            _emailAddressField.SendKey(emailAddress);
         }
         public void ClearEmailAddress()
         {

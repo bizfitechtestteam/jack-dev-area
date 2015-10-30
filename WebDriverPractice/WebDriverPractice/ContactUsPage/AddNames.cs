@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace WebDriverPractice
@@ -26,12 +20,12 @@ namespace WebDriverPractice
 
         public void EnterFirstName(string firstName)
         {
-            _firstNameField.SendKeys(firstName);
+            _firstNameField.SendKey(firstName);
         }
 
         public void EnterLastName(string lastName)
         {
-            _lastNameField.SendKeys(lastName);
+            _lastNameField.SendKey(lastName);
         }
         public void ClearFirstName()
         {

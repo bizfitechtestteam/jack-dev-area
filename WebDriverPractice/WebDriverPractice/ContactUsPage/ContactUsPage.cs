@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace WebDriverPractice
@@ -15,7 +14,9 @@ namespace WebDriverPractice
         [FindsBy(How = How.Id, Using = "lastName-error")] private IWebElement _lastNameFieldRequiredError;
 
         [FindsBy(How = How.Id, Using = "message-error")] private IWebElement _messageFieldRequiredError;
-        
+
+        [FindsBy(How = How.Id, Using = "error-message")]private IWebElement _generalError;
+         
         public ContactUsPage(IWebDriver driver)
         {
             Driver = driver;
@@ -31,12 +32,38 @@ namespace WebDriverPractice
         {
             return Driver.Title;
         }
-        public void Submit()
+
+        public string FirstNameError()
         {
-            _contactSubmit.Click();
+            return _firstNameFieldRequiredError.Text;
+        }
+        public string LastNameError()
+        {
+            return _lastNameFieldRequiredError.Text;
+        }
+        public string EmailError()
+        {
+            return _emailFieldRequiredError.Text;
+        }
+        public string MessageError()
+        {
+            return _messageFieldRequiredError.Text;
+        }
+        public string GeneralError()
+        {
+            return _generalError.Text;
         }
 
+        public string SuccessfullMessage()
+        {
+            return _generalError.Text;
+        }
 
+        public void Submit()
+        {
+            _contactSubmit.click();
+        }
+        
         public void FillContactUsForm(string firstName, string lastName, string emailAddress, string aMessage)
         {
             AddNames.EnterFirstName(firstName);
@@ -52,68 +79,8 @@ namespace WebDriverPractice
             AddEmailAddress.ClearEmailAddress();
             AddMessage.ClearAMessage();
         }
-
-        public void ContactUsForm_SentSuccessfully()
-        {
-            var errorMessage = Driver.FindElement(By.Id("gform_confirmation_message_13"));
-            Assert.AreEqual(errorMessage.Text, ("Thanks for contacting us! We will get in touch with you shortly."));
-        }
-
-        public void ContactUsForm_GeneralError()
-        {
-            var generalErrorMessage = Driver.FindElement(By.Id("error-message"));
-            Assert.AreEqual(generalErrorMessage.Text,
-                ("There was a problem with your submission. Errors have been highlighted below."));
-        }
-
-        public void ContactUsForm_FirstName_FieldRequiredError()
-        {
-            Assert.AreEqual(_firstNameFieldRequiredError.Text, ("This field is required."));
-        }
-
-        public void ContactUsForm_LastName_FieldRequiredError()
-        {
-            Assert.AreEqual(_lastNameFieldRequiredError.Text, ("This field is required."));
-        }
-
-        public void ContactUsForm_Email_FieldRequiredError()
-        {
-            Assert.AreEqual(_emailFieldRequiredError.Text, ("This field is required."));
-        }
-
-        public void ContactUsForm_Message_FieldRequiredError()
-        {
-            Assert.AreEqual(_messageFieldRequiredError.Text, ("This field is required."));
-        }
-
-        public void ContactUsForm_Email_ValidRequiredError()
-        {
-            Assert.AreEqual(_emailFieldRequiredError.Text, ("Please enter a valid email address."));
-        }
-
-        public void ContactusForm_FirstName_NonAlphaError()
-        {
-            Assert.AreEqual(_firstNameFieldRequiredError.Text, ("Only Alpha Characters Allowed."));
-        }
-
-        public void ContactusForm_LastName_NonAlphaError()
-        {
-            Assert.AreEqual(_lastNameFieldRequiredError.Text, ("Only Alpha Characters Allowed."));
-        }
-
-        public void ContactusForm_FirstName_OverMaxCharsError()
-        {
-            Assert.AreEqual(_firstNameFieldRequiredError.Text, ("Please enter no more than 50 characters."));
-        }
-
-        public void ContactusForm_LastName_OverMaxCharsError()
-        {
-            Assert.AreEqual(_lastNameFieldRequiredError.Text, ("Please enter no more than 50 characters."));
-        }
-
-        public void ContactusForm_Email_OverMaxCharsError()
-        {
-            Assert.AreEqual(_emailFieldRequiredError.Text, ("Please enter no more than 100 characters."));
-        }
+        
     }
+
+
 }
