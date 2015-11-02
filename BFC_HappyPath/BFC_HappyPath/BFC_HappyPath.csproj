@@ -52,9 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BFC_HappyPathTests.cs" />
+    <Compile Include="Components\AnnualTurnover.cs" />
+    <Compile Include="Components\BusinessCustomers.cs" />
     <Compile Include="Components\EnterCompanyName.cs" />
     <Compile Include="Components\EnterLoanAmount.cs" />
     <Compile Include="Components\HowLongTrading.cs" />
+    <Compile Include="Components\LegalEntity.cs" />
+    <Compile Include="Components\NeedForFinance.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Pages\AboutYouPage.cs" />
     <Compile Include="Pages\IComponent.cs" />
@@ -67,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LocalBrowserConfigs.xml" />
+    <Content Include="ToDo.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

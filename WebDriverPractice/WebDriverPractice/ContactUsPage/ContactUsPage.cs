@@ -15,7 +15,7 @@ namespace WebDriverPractice
 
         [FindsBy(How = How.Id, Using = "message-error")] private IWebElement _messageFieldRequiredError;
 
-        [FindsBy(How = How.Id, Using = "error-message")]private IWebElement _generalError;
+        [FindsBy(How = How.Id, Using = "error-message")] private IWebElement _generalError;
          
         public ContactUsPage(IWebDriver driver)
         {

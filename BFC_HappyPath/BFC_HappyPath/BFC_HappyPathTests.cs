@@ -13,10 +13,11 @@ namespace BFC_HappyPath
         public void TestPage()
         {
             WebDriver.Navigate().GoToUrl("https://bfc-test.bftcloud.com/start");
-            StartPage.FillOutStartPage("12345","testy");
+            StartPage.FillOutStartPage("12345","testyasd");
             StartPage.Submit();
-            Thread.Sleep(5500);
-            YourBusinessPage.FillOutYourBusinessPage(1217);
+            Thread.Sleep(2500);
+            //YourBusinessPage.FillOutYourBusinessPage(611, "123456", "Property purchase", "A large proportion of my customers");
+            YourBusinessPage.FillOutYourBusinessPage("SoleTrader"," "," "," ", 611,"123456", "Property purchase", "A large proportion of my customers");
         }   
     }
 }

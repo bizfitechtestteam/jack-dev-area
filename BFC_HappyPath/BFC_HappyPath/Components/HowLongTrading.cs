@@ -15,29 +15,45 @@ namespace BFC_HappyPath.Components
             PageFactory.InitElements(Driver, this);
         }
 
-        [FindsBy(How = How.CssSelector, Using = "")]
+        [FindsBy(How = How.ClassName, Using = "c-input-container__plus")]
         private IWebElement _plusButton;
-        [FindsBy(How = How.CssSelector, Using = "")]
+        [FindsBy(How = How.ClassName, Using = "c-input-container__minus")]
         private IWebElement _minusButton;
         [FindsBy(How = How.Id, Using = "how-long-value")]
         private IWebElement _howLongValue;
 
         private int howLong;
 
-        public void SetTradingTime(int howLongValue)
+        public void CheckTimeTrading(int howLongValue, string stringHowLong)
         {
-            string stringHowLong =_howLongValue.GetAttribute("value").ToString();
+            stringHowLong = _howLongValue.GetAttribute("value").ToString();
             stringHowLong = stringHowLong.Replace("-", "");
             howLong = Int32.Parse(stringHowLong);
-            if (howLongValue < howLong)
+        }
+
+        public void SetTradingTime(int howLongValue)
+        {
+            string stringHowLong = "";
+            CheckTimeTrading(howLongValue, stringHowLong);
+
+            while (howLongValue < howLong)
             {
-                _minusButton.Click();
+                CheckTimeTrading(howLongValue, stringHowLong);
+                if (howLongValue < howLong)
+                {
+                    _minusButton.Click();
+                }
             }
-            if (howLongValue > howLong)
+
+            while (howLongValue > howLong)
             {
-                _plusButton.Click();
+                CheckTimeTrading(howLongValue, stringHowLong);
+                if (howLongValue > howLong)
+                {
+                    _plusButton.Click();
+                }
+            
             }
-            else return;
         }
 
         public IWebDriver Driver { get; set; }
