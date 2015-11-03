@@ -28,7 +28,7 @@ namespace BFC_HappyPath.Components
         {
             stringHowLong = _howLongValue.GetAttribute("value").ToString();
             stringHowLong = stringHowLong.Replace("-", "");
-            howLong = Int32.Parse(stringHowLong);
+            howLong = int.Parse(stringHowLong);
         }
 
         public void SetTradingTime(int howLongValue)

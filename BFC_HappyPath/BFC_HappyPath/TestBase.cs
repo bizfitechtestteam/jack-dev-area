@@ -15,6 +15,8 @@ namespace BFC_HappyPath
         public StartPage StartPage => new StartPage(WebDriver);
         public YourBusinessPage YourBusinessPage => new YourBusinessPage(WebDriver);
         public AboutYouPage AboutYouPage => new AboutYouPage(WebDriver);
+        public YourMatchesPage YourMatchesPage => new YourMatchesPage(WebDriver);
+        public CertaintyApprovalPage CertaintyApprovalPage => new CertaintyApprovalPage(WebDriver);
         public TestContext TestContext { get; set; }
         [DataSource("XmlDataSource"), TestInitialize]
         public void SetUp()

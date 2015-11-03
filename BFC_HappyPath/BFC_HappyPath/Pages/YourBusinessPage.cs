@@ -11,6 +11,7 @@ namespace BFC_HappyPath.Pages
         private NeedForFinance NeedForFinance => new NeedForFinance(Driver);
         private BusinessCustomers BusinessCustomers => new BusinessCustomers(Driver);
         private LegalEntity LegalEntity => new LegalEntity(Driver);
+        private CompanyAddress CompanyAddress => new CompanyAddress(Driver);
         public YourBusinessPage(IWebDriver driver)
         {
             Driver = driver;
@@ -29,9 +30,10 @@ namespace BFC_HappyPath.Pages
             BusinessCustomers.SetBusinessCustomer(businessCustomers);
             _continueButton.Click();
         }
-        public void FillOutYourBusinessPage(string legalEntity, string companyAddress1, string city, string postcode, int howLongVal, string setAnnualTurnover, string fundingPurpose, string businessCustomers)
+        public void FillOutYourBusinessPage(string legalEntity, string companyAddress1, string companyCity, string companyPostcode, int howLongVal, string setAnnualTurnover, string fundingPurpose, string businessCustomers)
         {
             LegalEntity.SetLegalEntity(legalEntity);
+            CompanyAddress.EnterManualAddress(companyAddress1,companyCity, companyPostcode);
             HowLongTrading.SetTradingTime(howLongVal);
             AnnualTurnover.setAnnualTurnover(setAnnualTurnover);
             NeedForFinance.SelectFundingPurpose(fundingPurpose);

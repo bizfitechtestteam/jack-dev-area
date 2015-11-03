@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace BFC_HappyPath
 {
@@ -42,6 +43,6 @@ namespace BFC_HappyPath
                 return false;
             }
         }
-
+        
     }
 }

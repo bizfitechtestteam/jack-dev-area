@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -15,14 +12,14 @@ namespace BFC_HappyPath.Components
             IWebDriver Driver = driver;
             PageFactory.InitElements(driver, this);
         }
-        [FindsBy(How = How.CssSelector, Using = "business-entity")]
+        [FindsBy(How = How.CssSelector, Using = ".c-radio__inner.c-radio__inner--inline")]
         private IList<IWebElement> _legalEntity;
 
         public void SetLegalEntity(string legalEntity)
         {
-            foreach (IWebElement legalEntityChoice in _legalEntity.Where(x => x.Text == legalEntity))
+               foreach (IWebElement legalEntityChoice in _legalEntity.Where(x => x.Text == legalEntity))
             {
-                legalEntityChoice.Click();
+               legalEntityChoice.Click();
             }
         }
 
