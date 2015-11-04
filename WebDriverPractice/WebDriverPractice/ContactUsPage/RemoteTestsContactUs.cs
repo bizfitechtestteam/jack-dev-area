@@ -30,7 +30,7 @@ namespace WebDriverPractice
         [DataSource("XmlDataSource"), TestMethod]
         public void ContactForm_InvalidEmail_NoDot()
         {
-            ContactUsPage.FillContactUsForm("Jack", "Bro", "thisisnotaemail@gmail", "testy messagey");//    Allows just @ ???
+            ContactUsPage.FillContactUsForm("Jack", "Bro", "thisisnotaemail@gmail", "testy messagey");// Allows just @ ???
             Assert.AreEqual(emailValidMessage, ContactUsPage.EmailError());
             ContactUsPage.Submit();
             Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
@@ -168,6 +168,4 @@ namespace WebDriverPractice
             Assert.AreEqual(generalErrorMessage, ContactUsPage.GeneralError());
         }
     }
-
-
 }

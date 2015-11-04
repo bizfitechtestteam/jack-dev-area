@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -32,8 +33,8 @@ namespace BFC_HappyPath.Components
             else
             {
                 _noCreditButton.Click();
-            }
-            
+                Thread.Sleep(500);
+            }       
         }
 
         public IWebDriver Driver { get; set;}

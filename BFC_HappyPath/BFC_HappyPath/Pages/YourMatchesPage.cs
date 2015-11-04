@@ -15,7 +15,7 @@ namespace BFC_HappyPath.Pages
         [FindsBy(How = How.CssSelector, Using = ".c-btn.c-btn--a.c-page__btn.js-tracking-get-certainty-of-approval")]
         private IWebElement _getCertaintyApproval;
 
-        public void FillYourMatchesPage()
+        public void GetCertainty()
         {
             _getCertaintyApproval.Click();
         }

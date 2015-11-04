@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System.Threading;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace BFC_HappyPath.Components
@@ -10,6 +11,8 @@ namespace BFC_HappyPath.Components
             IWebDriver Driver = driver;
             PageFactory.InitElements(driver, this);
         }
+        [FindsBy(How = How.Id, Using = "business-address")]
+        private IWebElement addressField;
         [FindsBy(How = How.Id, Using = "business-address-1")]
         private IWebElement _companyAddressLine1;
         [FindsBy(How = How.Id, Using = "business-address-town")]
@@ -26,6 +29,15 @@ namespace BFC_HappyPath.Components
             _companyPostcode.SendText(companyPostcode);
         }
 
+        public void EnterAutoAddress(string postCode)
+        {
+            Thread.Sleep(1000);
+            addressField.SendKeys(postCode);
+            Thread.Sleep(2000);
+            addressField.SendKeys(Keys.Space);
+            Thread.Sleep(1100);
+            addressField.SendKeys(Keys.Enter);
+        }
         public IWebDriver Driver { get; set; }
     }
 }

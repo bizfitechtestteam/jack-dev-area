@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
-using WebDriverPractice;
 namespace WebDriverPractice
 {
     public class RemoteDriverManager

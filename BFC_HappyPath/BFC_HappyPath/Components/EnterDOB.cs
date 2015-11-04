@@ -16,7 +16,7 @@ namespace BFC_HappyPath.Components
 
         public void FillDOB(string DOB)
         {
-            _EnterDOB.SendText(DOB);
+            _EnterDOB.SendKeys(DOB);
         }
 
         public IWebDriver Driver { get; set; }

@@ -12,16 +12,41 @@ namespace BFC_HappyPath.Pages
             PageFactory.InitElements(driver, this);
         }
         [FindsBy(How = How.XPath, Using = "/html/body/div/div/div/div/main/form/section/div/table")]
-        private IList<IWebElement> _financeOptions;
-        [FindsBy(How = How.CssSelector, Using = ".c-table-sorter__option.c-table-sorter__option--current>a")]
-        private IWebElement _certaintySort;
-        [FindsBy(How = How.Id, Using = "c-table-sorter__option")]
+        private IList<IWebElement> _lenderOptions;
+        [FindsBy(How = How.XPath, Using = "/html/body/div/div/div/div/main/form/section/div/div/ul/li[2]")]
         private IWebElement _decisionSort;
+        [FindsBy(How = How.CssSelector, Using = ".c-table-sorter__option>a")]
+        private IWebElement _certaintySort;
+        [FindsBy(How = How.CssSelector, Using = ".c-btn.c-btn--a")]
+        private IWebElement _seeProfile;
+        [FindsBy(How = How.XPath, Using = "/html/body/div/div/div/div/main/form/section/div/table/tbody/tr[1]/td[6]/a/button")]
+        private IWebElement firstGetFundedButton;
+        [FindsBy(How = How.XPath, Using = "/html/body/div/div/div/div/main/form/section/div/table/tbody/tr[3]/td[6]/a/button")]
+        private IWebElement secondGetFundedButton;
+        [FindsBy(How = How.XPath, Using = "/html/body/div/div/div/div/main/form/section/div/table/tbody/tr[5]/td[6]/a/button")]
+        private IWebElement thirdGetFundedButton;
         public IWebDriver Driver{get;set;}
 
-        public void ApplyForBestCertainty()
+        public void ApplyForBestDecision(int productPlace)
         {
-            _certaintySort.Click();
+            _decisionSort.Click();
+            switch (productPlace)
+            {
+                case 1:
+                    firstGetFundedButton.Click();
+                    break;
+                case 2:
+                    secondGetFundedButton.Click();
+                    break;
+                case 3:
+                    thirdGetFundedButton.Click();
+                    break;
+            }
+        }
+
+        public void NoMatches()
+        {
+            _seeProfile.Click();
         }
 
         public string GetPageTitle()

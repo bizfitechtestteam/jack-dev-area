@@ -1,8 +1,0 @@
-﻿Your Business
-- Non company house number data
-	- Select your legal entity
-	- Company address manual
-	- company address postcode finder
-
-About you
-	-

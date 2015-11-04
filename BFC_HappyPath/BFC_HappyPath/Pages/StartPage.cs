@@ -31,6 +31,7 @@ namespace BFC_HappyPath.Pages
         {
             EnterLoanAmount.EnterLoan(loanAmount);
             EnterCompany.EnterCompanyField(companyName);
+            Submit();
         }
 
         public string GetPageTitle()

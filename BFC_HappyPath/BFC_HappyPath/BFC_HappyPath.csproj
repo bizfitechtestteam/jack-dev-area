@@ -77,13 +77,13 @@
     <Compile Include="Pages\StartPage.cs" />
     <Compile Include="Pages\YourBusinessPage.cs" />
     <Compile Include="Pages\YourMatchesPage.cs" />
+    <Compile Include="Pages\YourProfilePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemoteDriverManager.cs" />
     <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LocalBrowserConfigs.xml" />
-    <Content Include="ToDo.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

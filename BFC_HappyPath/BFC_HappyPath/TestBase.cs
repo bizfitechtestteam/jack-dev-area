@@ -17,6 +17,8 @@ namespace BFC_HappyPath
         public AboutYouPage AboutYouPage => new AboutYouPage(WebDriver);
         public YourMatchesPage YourMatchesPage => new YourMatchesPage(WebDriver);
         public CertaintyApprovalPage CertaintyApprovalPage => new CertaintyApprovalPage(WebDriver);
+        public ApplyWithConfidencePage ApplyWithConfidencePage => new ApplyWithConfidencePage(WebDriver);
+        public YourProfilePage YourProfilePage => new YourProfilePage(WebDriver);
         public TestContext TestContext { get; set; }
         [DataSource("XmlDataSource"), TestInitialize]
         public void SetUp()
@@ -29,7 +31,7 @@ namespace BFC_HappyPath
 
             try
             {
-                WebDriver.Navigate().GoToUrl("https://bfc-test.bftcloud.com/start");
+                WebDriver.Navigate().GoToUrl("https://bfc-test.bftcloud.com/start/");
             }
             catch (WebDriverTimeoutException)
             {
