@@ -14,6 +14,8 @@ namespace BFC_HappyPath.Components
         [FindsBy(How = How.Id, Using = "business-name")]
         private IWebElement _EnterCompanyfield;
 
+        private string companyFinder = "#ui-id-1";
+
         public void EnterCompanyField(string companyName)
         {
             if (companyName.Length > 5)
@@ -23,9 +25,8 @@ namespace BFC_HappyPath.Components
             else
             {
                 _EnterCompanyfield.SendText(companyName);
-                Thread.Sleep(1500);
+                Driver.WaitForElement(By.CssSelector(companyFinder));
                 _EnterCompanyfield.SendText(Keys.ArrowDown);
-                Thread.Sleep(500);
                 _EnterCompanyfield.SendText(Keys.Tab);
             }
         }

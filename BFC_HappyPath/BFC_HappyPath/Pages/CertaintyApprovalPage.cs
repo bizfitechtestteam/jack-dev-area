@@ -11,7 +11,6 @@ namespace BFC_HappyPath.Pages
         private EnterDOB EnterDOB => new EnterDOB(Driver);
         private DirectorOfCompany DirectorOfCompany => new DirectorOfCompany(Driver);
         private YourIndustry YourIndustry => new YourIndustry(Driver);
-        private CardPayment CardPayment => new CardPayment(Driver);
         private CardTerminal CardTerminal => new CardTerminal(Driver);
         public CertaintyApprovalPage(IWebDriver driver)
         {
@@ -31,70 +30,70 @@ namespace BFC_HappyPath.Pages
 
 
 
-        public void FillOutCertaintyApproval(string customerAddress1, string customerCity, string customerPostcode, string DOB, string directorAnswer, string industryType,string creditAmount, string cardProvider)
+        public void FillOutCertaintyApproval(string customerAddress1, string customerCity, string customerPostcode, string day, string month, string year, string directorAnswer, string industryType,string creditAmount, string cardProvider)
         {
             _bizAddress.SendText(Keys.Tab);
             CompanyAddress.EnterManualAddress(customerAddress1, customerCity, customerPostcode);
-            EnterDOB.FillDOB(DOB);
+            EnterDOB.FillDOB(day,month,year);
             DirectorOfCompany.SelectDirectorCompany(directorAnswer);
             YourIndustry.SelectDirectorCompany(industryType);
             CardTerminal.SetCreditAmount(creditAmount,cardProvider);
             dobField.SendKeys(Keys.Enter);
         }
-        public void FillOutCertaintyApproval(string customerAddress1, string customerCity, string customerPostcode, string DOB, string industryType, string creditAmount, string cardProvider)
+        public void FillOutCertaintyApproval(string customerAddress1, string customerCity, string customerPostcode, string day, string month, string year, string industryType, string creditAmount, string cardProvider)
         {
             _bizAddress.SendText(Keys.Tab);
             CompanyAddress.EnterManualAddress(customerAddress1, customerCity, customerPostcode);
-            EnterDOB.FillDOB(DOB);
+            EnterDOB.FillDOB(day, month, year);
             YourIndustry.SelectDirectorCompany(industryType);
             CardTerminal.SetCreditAmount(creditAmount, cardProvider);
             _seeCertainty.Click();
         }
-        public void FillOutCertaintyApproval(string customerAddress1, string customerCity, string customerPostcode, string DOB, string directorAnswer)
+        public void FillOutCertaintyApproval(string customerAddress1, string customerCity, string customerPostcode, string day, string month, string year, string directorAnswer)
         {
             _bizAddress.SendText(Keys.Tab);
             CompanyAddress.EnterManualAddress(customerAddress1, customerCity, customerPostcode);
-            EnterDOB.FillDOB(DOB);
+            EnterDOB.FillDOB(day, month, year);
             DirectorOfCompany.SelectDirectorCompany(directorAnswer);
             _seeCertainty.Click();
         }
 
-        public void FillOutCertaintyApproval(string customerAddress1, string customerCity, string customerPostcode, string DOB)
+        public void FillOutCertaintyApproval(string customerAddress1, string customerCity, string customerPostcode, string day, string month, string year)
         {
             _bizAddress.SendText(Keys.Tab);
             CompanyAddress.EnterManualAddress(customerAddress1, customerCity, customerPostcode);
-            EnterDOB.FillDOB(DOB);
+            EnterDOB.FillDOB(day, month, year);
             dobField.SendKeys(Keys.Enter);
         }
-        public void FillOutCertaintyApprovalAuto(string customerPostCode, string DOB, string directorAnswer, string industryType, string creditAmount, string cardProvider)
+        public void FillOutCertaintyApprovalAuto(string customerPostCode, string day, string month, string year, string directorAnswer, string industryType, string creditAmount, string cardProvider)
         {
             CompanyAddress.EnterAutoAddress(customerPostCode);
-            EnterDOB.FillDOB(DOB);
+            EnterDOB.FillDOB(day, month, year);
             DirectorOfCompany.SelectDirectorCompany(directorAnswer);
             YourIndustry.SelectDirectorCompany(industryType);
             CardTerminal.SetCreditAmount(creditAmount, cardProvider);
             dobField.SendKeys(Keys.Enter);
             _seeCertainty.Click();
         }
-        public void FillOutCertaintyApprovalAuto(string customerPostCode, string DOB, string industryType, string creditAmount, string cardProvider)
+        public void FillOutCertaintyApprovalAuto(string customerPostCode, string day, string month, string year, string industryType, string creditAmount, string cardProvider)
         {
             CompanyAddress.EnterAutoAddress(customerPostCode);
-            EnterDOB.FillDOB(DOB);
+            EnterDOB.FillDOB(day, month, year);
             YourIndustry.SelectDirectorCompany(industryType);
             CardTerminal.SetCreditAmount(creditAmount, cardProvider);
             _seeCertainty.Click();
         }
-        public void FillOutCertaintyApprovalAuto(string customerPostCode,string DOB, string directorAnswer)
+        public void FillOutCertaintyApprovalAuto(string customerPostCode, string day, string month, string year, string directorAnswer)
         {
             CompanyAddress.EnterAutoAddress(customerPostCode);
-            EnterDOB.FillDOB(DOB);
+            EnterDOB.FillDOB(day, month, year);
             DirectorOfCompany.SelectDirectorCompany(directorAnswer);
             _seeCertainty.Click();
         }
-        public void FillOutCertaintyApprovalAuto(string customerPostcode, string DOB)
+        public void FillOutCertaintyApprovalAuto(string customerPostcode, string day, string month, string year)
         {
             CompanyAddress.EnterAutoAddress(customerPostcode);
-            EnterDOB.FillDOB(DOB);
+            EnterDOB.FillDOB(day, month, year);
             dobField.SendKeys(Keys.Enter);
         }
 

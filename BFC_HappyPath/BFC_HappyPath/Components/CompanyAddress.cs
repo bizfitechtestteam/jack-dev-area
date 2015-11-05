@@ -8,9 +8,14 @@ namespace BFC_HappyPath.Components
     {
         public CompanyAddress(IWebDriver driver)
         {
-            IWebDriver Driver = driver;
+            Driver = driver;
             PageFactory.InitElements(driver, this);
         }
+
+        private string fieldCSS= ".pcaitem.pcafirstitem.pcaselected";
+
+        [FindsBy(How = How.CssSelector, Using = ".pcaitem.pcafirstitem.pcaselected")]
+        private IWebElement autoAddress;
         [FindsBy(How = How.Id, Using = "business-address")]
         private IWebElement addressField;
         [FindsBy(How = How.Id, Using = "business-address-1")]
@@ -37,6 +42,7 @@ namespace BFC_HappyPath.Components
             addressField.SendKeys(Keys.Space);
             Thread.Sleep(1100);
             addressField.SendKeys(Keys.Enter);
+
         }
         public IWebDriver Driver { get; set; }
     }

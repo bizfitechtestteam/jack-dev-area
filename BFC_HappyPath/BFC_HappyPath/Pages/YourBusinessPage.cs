@@ -29,7 +29,8 @@ namespace BFC_HappyPath.Pages
             AnnualTurnover.setAnnualTurnover(setAnnualTurnover);
             NeedForFinance.SelectFundingPurpose(fundingPurpose);
             BusinessCustomers.SetBusinessCustomer(businessCustomers);
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
+            Driver.WaitForElement(By.CssSelector(".c-btn.c-btn--a.c-questions__btn.js-tracking-your-business-continue"));
             _continueButton.Click();
         }
         public void FillOutYourBusinessPage(string legalEntity, string companyAddress1, string companyCity, string companyPostcode, int howLongVal, string setAnnualTurnover, string fundingPurpose, string businessCustomers)

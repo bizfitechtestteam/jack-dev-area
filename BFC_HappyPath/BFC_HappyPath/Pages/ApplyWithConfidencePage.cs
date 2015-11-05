@@ -25,6 +25,8 @@ namespace BFC_HappyPath.Pages
         private IWebElement secondGetFundedButton;
         [FindsBy(How = How.XPath, Using = "/html/body/div/div/div/div/main/form/section/div/table/tbody/tr[5]/td[6]/a/button")]
         private IWebElement thirdGetFundedButton;
+        [FindsBy(How = How.CssSelector, Using = ".c-btn.c-btn--a.c-btn--full.c-btn--tall.js-product-id.js-tracking-get-funded")]
+        private IWebElement fundOtherButton;
         public IWebDriver Driver{get;set;}
 
         public void ApplyForBestDecision(int productPlace)
@@ -42,6 +44,11 @@ namespace BFC_HappyPath.Pages
                     thirdGetFundedButton.Click();
                     break;
             }
+        }
+
+        public void FundOther()
+        {
+            fundOtherButton.Click();
         }
 
         public void NoMatches()

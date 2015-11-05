@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace BFC_HappyPath
+namespace BFC_Newsletter_SignUp
 {
     public static class Extensions
     {
@@ -35,7 +35,7 @@ namespace BFC_HappyPath
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(cssSelector)));
         }
-        public static void WaitForElement(this IWebDriver Driver,By by)
+        public static void WaitForElement(this IWebDriver Driver, By by)
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
             wait.Until(ExpectedConditions.ElementIsVisible(by));
@@ -56,6 +56,6 @@ namespace BFC_HappyPath
                 return false;
             }
         }
-        
+
     }
 }
