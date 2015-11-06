@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BFC_Newsletter_SignUp;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace BFC_Newsletter_SignUp
@@ -23,6 +17,8 @@ namespace BFC_Newsletter_SignUp
         private IWebElement _emailErrorMessage;
         [FindsBy(How = How.ClassName, Using = "gform_confirmation_message")]
         private IWebElement _confirmationMessage;
+        [FindsBy(How = How.CssSelector, Using = ".fa.fa-envelope")]
+        private IWebElement _mailImage;
 
         private BFC_News_EmailField BFC_News_EmailField => new BFC_News_EmailField(Driver);
 
@@ -30,10 +26,13 @@ namespace BFC_Newsletter_SignUp
         {
             BFC_News_EmailField.EnterEmailField(emailAddress);
         }
-
         public void SignUp()
         {
             _signUpButton.click();
+        }
+        public void ClickElseWhere()
+        {
+            _mailImage.click();
         }
         public string emailErrorText()
         {

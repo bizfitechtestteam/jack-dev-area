@@ -41,8 +41,8 @@ namespace BFC_HappyPath
         [DataSource("XmlDataSource"), TestMethod]
         public void BFC_HighScore_NoCompanyNumber_AutoAddress_CardPayments_ApplyDecision_FundNext() //DOB BROKEN FOR SOME REASON...
         {
-            StartPage.FillOutStartPage("25000", "Pizzaaaa");
-            YourBusinessPage.FillOutYourBusinessPage("Sole trader", "NG1 1AA", 4853, "155456", "Debt refinancing", "A small proportion of my customers");
+            StartPage.FillOutStartPage("23000", "Pizzaaaa");
+            YourBusinessPage.FillOutYourBusinessPage("Sole trader", "NG1 1AA", 4853, "455456", "Debt refinancing", "A large proportion of my customers");
             AboutYouPage.FillOutAboutYouPage("Jack", "Bro", "jackbro@email.com", "01234567890");
             YourMatchesPage.GetCertainty();
             CertaintyApprovalPage.FillOutCertaintyApprovalAuto("12345", "12","12","1960", "Financial Services", "32345", "Barclaycard");

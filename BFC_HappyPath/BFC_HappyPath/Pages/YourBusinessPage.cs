@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Drawing.Text;
+using System.Threading;
 using BFC_HappyPath.Components;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -22,6 +23,9 @@ namespace BFC_HappyPath.Pages
 
         [FindsBy(How = How.CssSelector, Using = ".c-btn.c-btn--a.c-questions__btn.js-tracking-your-business-continue")]
         private IWebElement _continueButton;
+    
+        [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div/div/div/main/section[2]/form/fieldset/button")]
+        private IWebElement _continueButtonXPath;
 
         public void FillOutYourBusinessPage(int howLongVal,string setAnnualTurnover,string fundingPurpose, string businessCustomers)
         {
@@ -29,7 +33,6 @@ namespace BFC_HappyPath.Pages
             AnnualTurnover.setAnnualTurnover(setAnnualTurnover);
             NeedForFinance.SelectFundingPurpose(fundingPurpose);
             BusinessCustomers.SetBusinessCustomer(businessCustomers);
-            Thread.Sleep(1000);
             Driver.WaitForElement(By.CssSelector(".c-btn.c-btn--a.c-questions__btn.js-tracking-your-business-continue"));
             _continueButton.Click();
         }
@@ -49,8 +52,9 @@ namespace BFC_HappyPath.Pages
             CompanyAddress.EnterAutoAddress(companyPostcode);
             HowLongTrading.SetTradingTime(howLongVal);
             AnnualTurnover.setAnnualTurnover(setAnnualTurnover);
-            NeedForFinance.SelectFundingPurpose(fundingPurpose);
             BusinessCustomers.SetBusinessCustomer(businessCustomers);
+            NeedForFinance.SelectFundingPurpose(fundingPurpose);
+            Thread.Sleep(300);
             _continueButton.Click();
         }
 
