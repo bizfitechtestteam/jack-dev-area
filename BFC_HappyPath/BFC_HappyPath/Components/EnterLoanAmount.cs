@@ -11,7 +11,7 @@ namespace BFC_HappyPath.Components
             PageFactory.InitElements(Driver, this);
         }
 
-        [FindsBy(How = How.Id, Using = "funding-amount-altered")]
+        [FindsBy(How = How.Id, Using = "funding-amount-altered-clone")]
         private IWebElement _EnterLoanField;
 
         public void EnterLoan(string loanAmount)

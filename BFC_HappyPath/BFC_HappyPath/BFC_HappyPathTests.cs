@@ -54,7 +54,7 @@ namespace BFC_HappyPath
         public void BFC_LowScore_CompanyNumber_AutoAddress_FundOther()
         {
             StartPage.FillOutStartPage("43500", "jacks");
-            YourBusinessPage.FillOutYourBusinessPage(005, "300", "Debt refinancing", "No");
+            YourBusinessPage.FillOutYourBusinessPage(005, "3300", "Debt refinancing", "No");
             AboutYouPage.FillOutAboutYouPage("Jack34", "Bro34", "jackbro@email.com", "01234567811");
             YourMatchesPage.GetCertainty();
             CertaintyApprovalPage.FillOutCertaintyApprovalAuto("NG1 1AA", "12","12","1990", "No");

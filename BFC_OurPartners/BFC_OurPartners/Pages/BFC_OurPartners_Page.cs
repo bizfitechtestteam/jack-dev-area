@@ -11,6 +11,8 @@ namespace BFC_OurPartners.Pages
         private IWebElement _submitButton;
         [FindsBy(How = How.Id, Using = "gform_confirmation_message_15")]
         private IWebElement _confirmationMessage;
+        [FindsBy(How = How.CssSelector, Using = ".btn.cb-enable")]
+        private IWebElement _cookieOkay;
 
         [FindsBy(How = How.Id, Using = "error-message")]
         private IWebElement _generalError;
@@ -42,6 +44,7 @@ namespace BFC_OurPartners.Pages
 
         public void OurPartners_FillForm(string name,string company,string email,string partner,string subject,string message)
         {
+            _cookieOkay.click();
             BFC_OurPartners_NameField.EnterName(name);
             BFC_OurPartners_CompanyField.EnterCompanyName(company);
             BFC_OurPartners_EmailField.EnterEmail(email);
@@ -50,7 +53,16 @@ namespace BFC_OurPartners.Pages
             BFC_OurPartners_MessageField.EnterMessage(message);
             Submit();
         }
-
+        public void OurPartners_FillFormTab(string name, string company, string email, string partner, string subject, string message)
+        {
+            BFC_OurPartners_NameField.EnterNameTab(name);
+            BFC_OurPartners_CompanyField.EnterCompanyNameTab(company);
+            BFC_OurPartners_EmailField.EnterEmailTab(email);
+            BFC_OurPartners_PartnerField.EnterPartnerFieldTab(partner);
+            BFC_OurPartners_SubjectField.EnterSubjectTab(subject);
+            BFC_OurPartners_MessageField.EnterMessageTab(message);
+            Submit();
+        }
         public void Submit()
         {
             _submitButton.click();

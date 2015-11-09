@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BFC_HappyPath.Components;
+﻿using BFC_HappyPath.Components;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -11,6 +6,7 @@ namespace BFC_HappyPath.Pages
 {
     public class StartPage : IPage
     {
+
         public StartPage(IWebDriver driver)
         {
             Driver = driver;

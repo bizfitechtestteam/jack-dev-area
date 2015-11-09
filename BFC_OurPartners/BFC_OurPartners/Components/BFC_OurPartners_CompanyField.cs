@@ -19,5 +19,11 @@ namespace BFC_OurPartners
         {
             _companyField.SendText(companyName);
         }
+
+        public void EnterCompanyNameTab(string companyName)
+        {
+            _companyField.SendKeys(companyName);
+            _companyField.SendKeys(Keys.Tab);
+        }
     }
 }

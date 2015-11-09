@@ -19,5 +19,11 @@ namespace BFC_OurPartners.Components
         {
             _emailField.SendText(email);
         }
+
+        public void EnterEmailTab(string email)
+        {
+            _emailField.SendKeys(email);
+            _emailField.SendKeys(Keys.Tab);
+        }
     }
 }

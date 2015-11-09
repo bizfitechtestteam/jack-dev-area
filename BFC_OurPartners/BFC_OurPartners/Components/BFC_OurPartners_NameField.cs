@@ -19,5 +19,11 @@ namespace BFC_OurPartners.Components
         {
             _nameField.SendText(name);
         }
+
+        public void EnterNameTab(string name)
+        {
+            _nameField.SendKeys(name);
+            _nameField.SendKeys(Keys.Tab);
+        }
     }
 }

@@ -20,5 +20,10 @@ namespace BFC_OurPartners
         {
             _messageField.SendText(message);
         }
+        public void EnterMessageTab(string message)
+        {
+            _messageField.SendKeys(message);
+            _messageField.SendKeys(Keys.Tab);
+        }
     }
 }

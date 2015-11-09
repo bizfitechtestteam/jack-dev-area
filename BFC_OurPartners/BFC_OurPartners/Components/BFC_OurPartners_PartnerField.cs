@@ -20,5 +20,11 @@ namespace BFC_OurPartners
         {
             _partnerField.SendText(partner);
         }
+
+        public void EnterPartnerFieldTab(string partner)
+        {
+            _partnerField.SendKeys(partner);
+            _partnerField.SendKeys(Keys.Tab);
+        }
     }
 }

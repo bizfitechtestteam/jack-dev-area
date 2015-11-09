@@ -20,5 +20,10 @@ namespace BFC_OurPartners
         {
             _subjectField.SendText(subject);
         }
+        public void EnterSubjectTab(string subject)
+        {
+            _subjectField.SendKeys(subject);
+            _subjectField.SendKeys(Keys.Tab);
+        }
     }
 }

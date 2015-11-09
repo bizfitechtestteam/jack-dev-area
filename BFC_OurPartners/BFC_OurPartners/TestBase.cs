@@ -3,6 +3,7 @@ using BFC_OurPartners.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace BFC_OurPartners
 {
@@ -27,7 +28,7 @@ namespace BFC_OurPartners
             WebDriver.Manage().Timeouts().SetScriptTimeout(TimeSpan.FromMilliseconds(15000));
             WebDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromMilliseconds(15000));
             WebDriver.Manage().Window.Maximize();
-
+            
             try
             {
                 WebDriver.Navigate().GoToUrl("https://bfc-test.bftcloud.com/our-partners");

@@ -62,5 +62,17 @@ namespace BFC_OurPartners
             List<string> myList = new List<string>() { BFC_OurPartners_Page.NameError(), BFC_OurPartners_Page.CompanyError(), BFC_OurPartners_Page.EmailError(), BFC_OurPartners_Page.PartnerError(), BFC_OurPartners_Page.SubjectError() };
             myList.ListAsserts(_fieldReqErrorMessage, _generalErrorMessage, BFC_OurPartners_Page.GeneralError());
         }
+        [DataSource("XmlDataSource"), TestMethod]
+        public void OurPartners_NameNonAlpha_Submit()
+        {
+            BFC_OurPartners_Page.OurPartners_FillForm("Jack Bro #£$&", "JackBROLTD", "jackbro@testemailss.com", "Partner", "subjects", "Only Message");
+        }
+
+        [DataSource("XmlDataSource"), TestMethod]
+        public void OurPartners_Valid_Tab_Submit()
+        {
+            BFC_OurPartners_Page.OurPartners_FillFormTab("Jack Bro TAB", "JackBROLTD", "jackbro@testemailss.com", "Partner", "subjects", "Only Message");
+            Assert.AreEqual(_successfullMessage, BFC_OurPartners_Page.ConfirmationField());
+        }
     }
 }
