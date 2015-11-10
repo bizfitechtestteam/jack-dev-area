@@ -22,7 +22,7 @@ namespace BFC_HappyPath.Components
         {
             foreach (IWebElement fundingPurposeChoice in _fundingOptions.Where(x => x.Text == fundingPurpose))
             {
-                fundingPurposeChoice.Click();
+                fundingPurposeChoice.SafeClick(Driver);
             }
         }
         public void OtherFunding(string otherFundingPurpose)

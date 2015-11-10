@@ -1,12 +1,24 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 
 namespace BFC_HappyPath
 {
     public static class Extensions
     {
+        public static void SafeClick(this IWebElement element, IWebDriver driver)
+        {
+            if (element.Displayed && element.Enabled)
+            {
+                Actions builder = new Actions(driver);
+                var action = builder.MoveToElement(element, 0, -170);
+                action.Perform();
+
+                action.Click(element).Build().Perform();
+            }
+        }
         public static void SendText(this IWebElement field, string input)
         {
             try

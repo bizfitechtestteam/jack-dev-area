@@ -23,15 +23,17 @@ namespace BFC_HappyPath.Pages
 
         [FindsBy(How = How.CssSelector, Using = ".c-btn.c-btn--a.c-questions__btn.js-tracking-your-business-continue")]
         private IWebElement _continueButton;
-    
-       // [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div/div/div/main/section[2]/form/fieldset/button")]
-       // private IWebElement _continueButtonXPath;
+
+        [FindsBy(How = How.CssSelector, Using = ".c-question-container")]
+        private IWebElement _clickAway;
+
+        // [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div/div/div/main/section[2]/form/fieldset/button")]
+        // private IWebElement _continueButtonXPath;
 
         public void FillOutYourBusinessPage(int howLongVal,string setAnnualTurnover,string fundingPurpose, string businessCustomers)
         {
             HowLongTrading.SetTradingTime(howLongVal);
-            Thread.Sleep(1000);
-            AnnualTurnover.setAnnualTurnover(setAnnualTurnover);
+            AnnualTurnover.setAnnualTurnover(setAnnualTurnover);  
             NeedForFinance.SelectFundingPurpose(fundingPurpose);
             BusinessCustomers.SetBusinessCustomer(businessCustomers);
             _continueButton.Click();
@@ -51,10 +53,9 @@ namespace BFC_HappyPath.Pages
             LegalEntity.SetLegalEntity(legalEntity);
             CompanyAddress.EnterAutoAddress(companyPostcode);
             HowLongTrading.SetTradingTime(howLongVal);
+            NeedForFinance.SelectFundingPurpose(fundingPurpose);
             AnnualTurnover.setAnnualTurnover(setAnnualTurnover);
             BusinessCustomers.SetBusinessCustomer(businessCustomers);
-            NeedForFinance.SelectFundingPurpose(fundingPurpose);
-            Thread.Sleep(300);
             _continueButton.Click();
         }
 

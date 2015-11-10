@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <configs>
   <local>
-    <browser>chrome</browser>
-    <version>43</version>
+    <browser>firefox</browser>
+    <version>38</version>
     <platform>windows</platform>
   </local>
   <!--<local>
-    <browser>firefox</browser>
-    <version>38</version>
+    <browser>chrome</browser>
+    <version>43</version>
     <platform>windows</platform>
   </local>-->
   <!--<local>

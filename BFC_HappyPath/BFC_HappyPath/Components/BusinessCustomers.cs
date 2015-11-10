@@ -19,7 +19,7 @@ namespace BFC_HappyPath.Components
         {
             foreach (IWebElement businessesChoice in _businessCustomers.Where(x => x.Text == businessCustomers))
             {
-                businessesChoice.Click();
+                businessesChoice.SafeClick(Driver);
             }
         }
         public IWebDriver Driver { get; set; }

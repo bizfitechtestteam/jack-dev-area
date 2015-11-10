@@ -27,7 +27,7 @@ namespace BFC_HappyPath
             WebDriver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromMilliseconds(30000));
             WebDriver.Manage().Timeouts().SetScriptTimeout(TimeSpan.FromMilliseconds(15000));
             WebDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromMilliseconds(15000));
-            WebDriver.Manage().Window.Maximize();
+            //WebDriver.Manage().Window.Maximize();
 
             try
             {

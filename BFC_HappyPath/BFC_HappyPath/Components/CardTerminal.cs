@@ -25,6 +25,7 @@ namespace BFC_HappyPath.Components
         private IList<IWebElement> _terminalProviders;
       
         public void SetCreditAmount(string creditAmount, string cardProvider)
+
         {
             if (int.Parse(creditAmount) > 0)
             {
@@ -36,6 +37,8 @@ namespace BFC_HappyPath.Components
                 }
             }
             else
+
+
             {
                 _noCreditButton.Click();
             }       
