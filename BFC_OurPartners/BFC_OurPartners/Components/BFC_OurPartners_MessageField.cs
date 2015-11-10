@@ -19,6 +19,7 @@ namespace BFC_OurPartners
         public void EnterMessage(string message)
         {
             _messageField.SendText(message);
+            _messageField.SendKeys(Keys.PageDown);
         }
         public void EnterMessageTab(string message)
         {

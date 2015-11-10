@@ -16,7 +16,7 @@ namespace BFC_HappyPath.Components
 
         public void EnterLoan(string loanAmount)
         {
-            _EnterLoanField.SendText(loanAmount);
+            _EnterLoanField.SendKeys(loanAmount);
         }
 
         public IWebDriver Driver { get; set; }

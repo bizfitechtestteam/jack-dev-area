@@ -28,6 +28,7 @@ namespace BFC_HappyPath.Components
         private IWebElement _findMyAddress;
         public void EnterManualAddress(string companyLine1,string companyCity,string companyPostcode)
         {
+            Thread.Sleep(200);
             _findMyAddress.Click();
             _companyAddressLine1.SendText(companyLine1);
             _companyCity.SendText(companyCity);

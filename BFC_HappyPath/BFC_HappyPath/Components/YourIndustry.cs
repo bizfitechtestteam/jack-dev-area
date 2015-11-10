@@ -13,10 +13,12 @@ namespace BFC_HappyPath.Components
         }
         [FindsBy(How = How.Id, Using = "industry")]
         private IWebElement _directorCompanyField;
+        [FindsBy(How = How.CssSelector, Using = "#industry")]
+        private IWebElement _directorCompanyFieldCSS;
 
         public void SelectDirectorCompany(string industryField)
         {
-            var selectElement = new SelectElement(_directorCompanyField);
+            var selectElement = new SelectElement(_directorCompanyFieldCSS);
             selectElement.SelectByValue(industryField);
 
         }

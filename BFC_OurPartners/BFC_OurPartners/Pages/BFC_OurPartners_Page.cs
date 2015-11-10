@@ -42,9 +42,12 @@ namespace BFC_OurPartners.Pages
             PageFactory.InitElements(Driver, this);
         }
 
+        public void ClickCookies()
+        {
+            _cookieOkay.Click();
+        }
         public void OurPartners_FillForm(string name,string company,string email,string partner,string subject,string message)
         {
-            _cookieOkay.click();
             BFC_OurPartners_NameField.EnterName(name);
             BFC_OurPartners_CompanyField.EnterCompanyName(company);
             BFC_OurPartners_EmailField.EnterEmail(email);

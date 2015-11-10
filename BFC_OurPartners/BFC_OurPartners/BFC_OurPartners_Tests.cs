@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace BFC_OurPartners
 {
@@ -63,7 +66,21 @@ namespace BFC_OurPartners
             myList.ListAsserts(_fieldReqErrorMessage, _generalErrorMessage, BFC_OurPartners_Page.GeneralError());
         }
         [DataSource("XmlDataSource"), TestMethod]
-        public void OurPartners_NameNonAlpha_Submit()
+        public void OurPartners_OnlyPartner_Submit()
+        {
+            BFC_OurPartners_Page.OurPartners_FillForm("", "", "", "Partner", "", "");
+            List<string> myList = new List<string>() { BFC_OurPartners_Page.NameError(), BFC_OurPartners_Page.CompanyError(), BFC_OurPartners_Page.EmailError(), BFC_OurPartners_Page.MessageError(), BFC_OurPartners_Page.SubjectError() };
+            myList.ListAsserts(_fieldReqErrorMessage, _generalErrorMessage, BFC_OurPartners_Page.GeneralError());
+        }
+        [DataSource("XmlDataSource"), TestMethod]
+        public void OurPartners_OnlyCompany_Submit()
+        {
+            BFC_OurPartners_Page.OurPartners_FillForm("", "Jack LTD", "", "", "", "");
+            List<string> myList = new List<string>() { BFC_OurPartners_Page.NameError(), BFC_OurPartners_Page.PartnerError(), BFC_OurPartners_Page.EmailError(), BFC_OurPartners_Page.MessageError(), BFC_OurPartners_Page.SubjectError() };
+            myList.ListAsserts(_fieldReqErrorMessage, _generalErrorMessage, BFC_OurPartners_Page.GeneralError());
+        }
+        [DataSource("XmlDataSource"), TestMethod]
+        public void OurPartners_NameNonAlpha_Submit() //Should this be allowed?
         {
             BFC_OurPartners_Page.OurPartners_FillForm("Jack Bro #£$&", "JackBROLTD", "jackbro@testemailss.com", "Partner", "subjects", "Only Message");
         }
@@ -72,6 +89,17 @@ namespace BFC_OurPartners
         public void OurPartners_Valid_Tab_Submit()
         {
             BFC_OurPartners_Page.OurPartners_FillFormTab("Jack Bro TAB", "JackBROLTD", "jackbro@testemailss.com", "Partner", "subjects", "Only Message");
+            Assert.AreEqual(_successfullMessage, BFC_OurPartners_Page.ConfirmationField());
+        }
+
+        [DataSource("XmlDataSource"), TestMethod]
+        public void OurPartners_InValidEmail_Valid_Submit()
+        {
+            BFC_OurPartners_Page.ClickCookies();
+            BFC_OurPartners_Page.OurPartners_FillForm("Jack Bro", "JackBroLTD", "jackbro", "Partner", "Free monies", "Heres some money");
+            Assert.AreEqual(_generalErrorMessage, BFC_OurPartners_Page.GeneralError());
+            Assert.AreEqual(_validEmailErrorMessage, BFC_OurPartners_Page.EmailError());
+            BFC_OurPartners_Page.OurPartners_FillForm("Jack Bro", "JackBroLTD", "jackbro@bizfiemail.com", "Partner", "Free monies", "Heres some money");
             Assert.AreEqual(_successfullMessage, BFC_OurPartners_Page.ConfirmationField());
         }
     }

@@ -20,14 +20,14 @@ namespace BFC_HappyPath.Components
         {
             if (companyName.Length > 5)
             {
-                _EnterCompanyfield.SendText(companyName);
+                _EnterCompanyfield.SendKeys(companyName);
             }
             else
             {
-                _EnterCompanyfield.SendText(companyName);
+                _EnterCompanyfield.SendKeys(companyName);
                 Driver.WaitForElement(By.CssSelector(companyFinder));
-                _EnterCompanyfield.SendText(Keys.ArrowDown);
-                _EnterCompanyfield.SendText(Keys.Tab);
+                _EnterCompanyfield.SendKeys(Keys.ArrowDown);
+                _EnterCompanyfield.SendKeys(Keys.Tab);
             }
         }
         public IWebDriver Driver { get; set; }

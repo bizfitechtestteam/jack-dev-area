@@ -30,6 +30,7 @@ namespace BFC_HappyPath.Pages
         public void FillOutYourBusinessPage(int howLongVal,string setAnnualTurnover,string fundingPurpose, string businessCustomers)
         {
             HowLongTrading.SetTradingTime(howLongVal);
+            Thread.Sleep(1000);
             AnnualTurnover.setAnnualTurnover(setAnnualTurnover);
             NeedForFinance.SelectFundingPurpose(fundingPurpose);
             BusinessCustomers.SetBusinessCustomer(businessCustomers);

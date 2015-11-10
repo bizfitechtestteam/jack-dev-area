@@ -17,6 +17,13 @@ namespace BFC_HappyPath.Pages
         private EnterCompanyName EnterCompany => new EnterCompanyName(Driver);
         [FindsBy(How = How.CssSelector, Using = ".c-hero__get-started.c-get-started")]
         private IWebElement _getStartedButton;
+        [FindsBy(How = How.CssSelector, Using = ".btn.cb-enable")]
+        private IWebElement _cookieOkay;
+
+        public void ClickCookie()
+        {
+            _cookieOkay.Click();
+        }
 
         public void Submit()
         {
